@@ -3,11 +3,21 @@
 <PageTitle>Trout Blog</PageTitle>
 
 <div class="container">
+    <hr />
     @foreach(BlogPost post in posts)
     {
-        <h1>@post.Title</h1>
-        <p>@post.Introduction</p>
-        <p>@post.Body</p>
+        <a href="/Article/@post.Id">
+            <div class="row">
+                <div class="col-4">
+                    <!-- Image for the post goes here -->
+                </div>
+                <div class="col-8">
+                    <h1>@post.Title</h1>
+                    <p>@post.Introduction</p>
+                </div>
+            </div>
+        </a>
+        <hr />
     }
 </div>
 

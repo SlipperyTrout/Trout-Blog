@@ -1,0 +1,23 @@
+﻿@page "/article/{Id:int}"
+<h3>Article</h3>
+
+<div class="container">
+    <p>@post.Body</p>
+</div>
+
+@using TroutBlog.Data.Entities;
+@using TroutBlog.Data;
+@inject IConfiguration Configuration;
+@code {
+    [Parameter]
+    public int Id { get; set; }
+
+    private AppDBContext _context;
+    public BlogPost post;
+
+    protected override async Task OnInitializedAsync()
+    {
+        _context = new AppDBContext(Configuration);
+        post = _context.Posts.Where(x => x.Id == this.Id).FirstOrDefault();
+    }
+}
