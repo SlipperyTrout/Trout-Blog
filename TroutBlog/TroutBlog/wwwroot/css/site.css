@@ -63,6 +63,36 @@ a, .btn-link {
     color: white;
 }
 
-    .blazor-error-boundary::after {
-        content: "An error has occurred."
-    }
+.blazor-error-boundary::after {
+    content: "An error has occurred."
+}
+
+.thumb-post img {
+    object-fit: cover;
+    overflow: hidden;
+    object-position: center; /* Center the image within the element */
+    width: 100%;
+    height: 20vh;
+}
+
+a {
+    text-decoration: none;
+}
+
+.post-landing-page h1 {
+    font-size: 20px;
+    font-weight: bold;
+    color: darkseagreen;
+}
+
+.post-landing-page p {
+    font-size: 15px;
+    color: black;
+}
+
+.main-image-article img {
+    object-fit: cover;
+    overflow: hidden;
+    object-position: center;
+    height: 50vh;
+}
