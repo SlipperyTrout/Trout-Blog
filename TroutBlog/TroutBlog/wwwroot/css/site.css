@@ -96,3 +96,19 @@ a {
     object-position: center;
     height: 50vh;
 }
+
+.article-title{
+    padding: 10px 20px 0px 20px;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.article-introduction {
+    padding: 0 20px 20px 20px;
+    font-size: 25px;
+    color: darkgray;
+}
+
+.article-body{
+    padding: 20px;
+}

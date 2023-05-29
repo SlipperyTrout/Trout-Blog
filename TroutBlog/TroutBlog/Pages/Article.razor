@@ -4,10 +4,9 @@
     <div class="main-image-article">
         <img class="w-100" src="images/mainImagesArticle/@post.Image">
     </div>
-
-    <h1>@post.Title</h1>
-    <h4>@post.Introduction</h4>
-    <p>@post.Body</p>
+    <h1 class="article-title">@post.Title</h1>
+    <h4 class="article-introduction">@post.Introduction</h4>
+    <p class="article-body">@((MarkupString)post.Body)</p>
 </div>
 
 @using TroutBlog.Data.Entities;
