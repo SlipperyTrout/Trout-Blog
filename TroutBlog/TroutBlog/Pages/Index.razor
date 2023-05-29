@@ -1,9 +1,26 @@
 ﻿@page "/"
 
-<PageTitle>Index</PageTitle>
+<PageTitle>Trout Blog</PageTitle>
 
-<h1>Hello, world!</h1>
+<div class="container">
+    @foreach(BlogPost post in posts)
+    {
+        <h1>@post.Title</h1>
+        <p>@post.Introduction</p>
+        <p>@post.Body</p>
+    }
+</div>
 
-Welcome to your new app.
+@using TroutBlog.Data.Entities;
+@using TroutBlog.Data;
+@inject IConfiguration Configuration;
+@code{
+    private AppDBContext _context;
+    public List<BlogPost> posts = new List<BlogPost>();
 
-<SurveyPrompt Title="How is Blazor working for you?" />
+    protected override async Task OnInitializedAsync()
+    {
+        _context = new AppDBContext(Configuration);
+        posts = _context.Posts.ToList();
+    }
+}
