@@ -5,8 +5,10 @@
         <img class="w-100" src="images/mainImagesArticle/@post.Image">
     </div>
     <h1 class="article-title">@post.Title</h1>
+    <p class="article-date"><small>@post.PostCreationTime.ToString("dd/mm/yyyy")</small></p>
     <h4 class="article-introduction">@post.Introduction</h4>
     <p class="article-body">@((MarkupString)post.Body)</p>
+
 </div>
 
 @using TroutBlog.Data.Entities;
