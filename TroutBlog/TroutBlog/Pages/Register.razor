@@ -1,0 +1,59 @@
+﻿@page "/register"
+
+<div class="container">
+    <EditForm Model="@newUser" OnSubmit="@HandleSubmit">
+        <DataAnnotationsValidator />
+        <br>
+        <div class="mb-2 d-flex justify-content-center">
+            <h2>Register</h2>
+        </div>
+        <div class="mb-2 d-flex justify-content-center">
+            <InputText type="username" class="login-textbox" placeholder="Username" @bind-Value="newUser.Username" />
+            <!--<ValidationMessage> why does this not work?--> 
+        </div>
+        <div class="mb-2 d-flex justify-content-center">
+            <InputText type="email" class="login-textbox" placeholder="Email" @bind-Value="newUser.Email" />
+        </div>
+        <div class="mb-2 d-flex justify-content-center">
+            <InputText type="password" class="login-textbox" placeholder="Password" @bind-Value="password" />
+        </div>
+        <div class="mb-2 d-flex justify-content-center">
+            <InputText type="password" class="login-textbox" placeholder="Confirm Password" @bind-Value="confirmPassword" />
+        </div>
+        <div>
+            <p class="d-flex justify-content-center">Already have an account?&nbsp;<a href="/login" class="link-primary">Login</a></p>
+        </div>
+        <div class="d-flex justify-content-center">
+            <button type="submit" class="login-button">Register</button>
+        </div>
+    </EditForm>
+</div>
+
+@using Data.Entities
+@using TroutBlog.Data;
+@inject IConfiguration Configuration;
+@code{
+    private AppDBContext _context;
+
+    protected override async Task OnInitializedAsync()
+    {
+        _context = new AppDBContext(Configuration);
+    }
+
+    private User newUser = new();
+    private string password;
+    private string confirmPassword;
+
+    private void HandleSubmit()
+    {
+        if (_context.Users.Any(u => u.Username == newUser.Username))
+        {
+            
+        }
+
+        if (password == confirmPassword)
+        {
+
+        }
+    }
+}

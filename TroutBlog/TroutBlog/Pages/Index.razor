@@ -3,7 +3,6 @@
 <PageTitle>Trout Blog</PageTitle>
 
 <div class="container">
-    <hr />
     @foreach(BlogPost post in posts)
     {
         <a href="/Article/@post.Id">
@@ -11,9 +10,7 @@
                 <div class="col-sm-4">
                     <div class="thumb-post">
                     <img class="w-100" src="images/mainImagesArticle/@post.Image">
-
-                    </div>
-                            <!-- Image for the post goes here -->
+                 </div>
                 </div>
                 <div class="col-sm-8 post-landing-page">
                     <h1>@post.Title</h1>

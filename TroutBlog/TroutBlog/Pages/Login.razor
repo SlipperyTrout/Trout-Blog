@@ -2,29 +2,33 @@
 @using Data.Entities
 
 <div class="container">
-    <EditForm Model="@login" OnSubmit="@HandleSubmit">
-        <h2 class="d-flex justify-content-center">Trout Blog Login</h2>
+    <EditForm OnSubmit="@HandleSubmit">
+        <br>
         <div class="mb-2 d-flex justify-content-center">
-            <InputText type="email" class="login-textbox" placeholder="Email" @bind-Value="login.Email" />
+            <h2>Login</h2>
         </div>
         <div class="mb-2 d-flex justify-content-center">
-            <InputText type="password" class="login-textbox" placeholder="Password" @bind-Value="login.Password" />
+            <InputText type="email" class="login-textbox" placeholder="Email" @bind-Value="email" />
+        </div>
+        <div class="mb-2 d-flex justify-content-center">
+            <InputText type="password" class="login-textbox" placeholder="Password" @bind-Value="password" />
         </div>
         <div>
             <p class="d-flex justify-content-center">Not a memeber?&nbsp;<a href="/register" class="link-primary">Register</a></p>
         </div>
         <div class="d-flex justify-content-center">
-            <button type="submit" class="button-login">Login</button>
+            <button type="submit" class="login-button">Login</button>
         </div>
     </EditForm>
 </div>
 
 
 @code {
-    private UserLogin login = new();
+    private string email;
+    private string password;
 
     private void HandleSubmit()
     {
-        
+        //Check if there is a coresponding email with the correct password hash inside of it.
     }
 }

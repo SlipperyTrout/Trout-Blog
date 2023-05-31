@@ -18,5 +18,6 @@ namespace TroutBlog.Data
         }
 
         public DbSet<BlogPost> Posts { get; set; }
+        public DbSet<User> Users { get; set; }
     }
 }

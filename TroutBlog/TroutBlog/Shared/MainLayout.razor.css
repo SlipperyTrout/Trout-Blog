@@ -19,6 +19,7 @@ main {
     height: 3.5rem;
     display: flex;
     align-items: center;
+    font-size: 1.4em;
 }
     .top-row .top-bar-left{
         margin-right: auto;

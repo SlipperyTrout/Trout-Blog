@@ -77,6 +77,11 @@ a, .btn-link {
 
 a {
     text-decoration: none;
+    color: rgb(112, 133, 244);
+}
+
+a:hover {
+    color: rgb(112, 133, 244);
 }
 
 .post-landing-page h1 {
@@ -127,10 +132,29 @@ a {
     margin: 0;
 }
 
-.login-textbox{
-    width: 300px;
+.login-textbox {
+    width: 18em;
+    font-size: 1.2em;
+    color: black;
+    border-radius: 3px;
+    border: solid;
+    border-color: lightgray;
+    padding: 5px;
 }
 
-.button-login{
-    width: 300px;
+.login-button {
+width: 18em;
+font-size: 1.2em;
+padding: 5px;
+background-color: rgb(112, 133, 244);
+border: solid;
+border-color: rgb(112, 133, 244);
+border-radius: 3px;
+border-width: 2.5px;
+}
+
+.login-button:hover {
+    background-color: rgb(112, 133, 244);
+    border: solid;
+    border-width: 2.5px;
 }
