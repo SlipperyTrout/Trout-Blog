@@ -1,24 +1,23 @@
-﻿@page "/register"
+﻿@page "/Register"
 
 <div class="container">
-    <EditForm Model="@newUser" OnSubmit="@HandleSubmit">
-        <DataAnnotationsValidator />
+    <EditForm Model="@newUser" OnSubmit="@HandleSubmitRegistration">
+        <DataAnnotationsValidator/>
         <br>
         <div class="mb-2 d-flex justify-content-center">
             <h2>Register</h2>
         </div>
-        <div class="mb-2 d-flex justify-content-center">
-            <InputText type="username" class="login-textbox" placeholder="Username" @bind-Value="newUser.Username" />
-            <!--<ValidationMessage> why does this not work?--> 
+        <div class="mb-2 d-flex flex-column align-items-center">
+            <InputText @bind-Value="newUser.Username" type="username" class="login-textbox" placeholder="Username" />
+            <ValidationMessage For="() => newUser.Username" />
         </div>
-        <div class="mb-2 d-flex justify-content-center">
-            <InputText type="email" class="login-textbox" placeholder="Email" @bind-Value="newUser.Email" />
+        <div class="mb-2 d-flex flex-column align-items-center">
+            <InputText @bind-Value="newUser.Email" type="email" class="login-textbox" placeholder="Email" />
+            <ValidationMessage For="() => newUser.Email" />
         </div>
-        <div class="mb-2 d-flex justify-content-center">
-            <InputText type="password" class="login-textbox" placeholder="Password" @bind-Value="password" />
-        </div>
-        <div class="mb-2 d-flex justify-content-center">
-            <InputText type="password" class="login-textbox" placeholder="Confirm Password" @bind-Value="confirmPassword" />
+        <div class="mb-2 d-flex flex-column align-items-center">
+            <InputText @bind-Value="newUser.Password" type="password" class="login-textbox" placeholder="Password" AutoComplete="false" />
+            <ValidationMessage For="() => newUser.Password" />
         </div>
         <div>
             <p class="d-flex justify-content-center">Already have an account?&nbsp;<a href="/login" class="link-primary">Login</a></p>
@@ -40,20 +39,13 @@
         _context = new AppDBContext(Configuration);
     }
 
-    private User newUser = new();
-    private string password;
-    private string confirmPassword;
+    private User newUser = new User();
 
-    private void HandleSubmit()
+    private void HandleSubmitRegistration()
     {
         if (_context.Users.Any(u => u.Username == newUser.Username))
         {
             
-        }
-
-        if (password == confirmPassword)
-        {
-
         }
     }
 }

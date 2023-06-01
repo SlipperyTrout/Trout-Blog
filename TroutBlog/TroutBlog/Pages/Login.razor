@@ -1,17 +1,19 @@
-﻿@page "/login"
+﻿@page "/Login"
 @using Data.Entities
 
 <div class="container">
-    <EditForm OnSubmit="@HandleSubmit">
+    <EditForm Model="@user" OnSubmit="@HandleSubmit">
+        <DataAnnotationsValidator />
         <br>
         <div class="mb-2 d-flex justify-content-center">
             <h2>Login</h2>
         </div>
-        <div class="mb-2 d-flex justify-content-center">
-            <InputText type="email" class="login-textbox" placeholder="Email" @bind-Value="email" />
+        <div class="mb-2 d-flex flex-column align-items-center">
+            <InputText @bind-Value="user.Email" type="email" class="login-textbox" placeholder="Email" style="outline: 1px solid #D3D3D3;" />
+            <ValidationMessage For="() => user.Email" />
         </div>
-        <div class="mb-2 d-flex justify-content-center">
-            <InputText type="password" class="login-textbox" placeholder="Password" @bind-Value="password" />
+        <div class="mb-2 d-flex flex-column align-items-center">
+            <InputText @bind-Value="user.Password" type=" password" class="login-textbox" placeholder="Password" style="outline: 1px solid #D3D3D3;" />
         </div>
         <div>
             <p class="d-flex justify-content-center">Not a memeber?&nbsp;<a href="/register" class="link-primary">Register</a></p>
@@ -24,8 +26,7 @@
 
 
 @code {
-    private string email;
-    private string password;
+    private ConnectedUser user = new();
 
     private void HandleSubmit()
     {
